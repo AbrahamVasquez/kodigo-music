@@ -1,18 +1,17 @@
 
 export const TrackList = ({ tracks, isLoading, keyword }) => {
-  return (
+  if (isLoading) {
+    return <div className="bg-primary text-light">Loading...</div>;
+  }
 
+  if (!tracks || tracks.length === 0) {
+    return <div>No tracks found for "{keyword}"</div>;
+  }
+
+  return (
     <div className="container">
-      {/* lo\ding Spinner icon*/}
-      <div className={`row ${isLoading ? "" : "d-none"}`}>
-        <div className="col-12 py-5 text-center">
-          <div className="spinner-border" style={{ width: "3rem", height: "3rem" }} role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </div>
-      </div>
       {/* Song Cards */}
-      <div className={`row ${keyword === "" ? "" : "d-none"}`}>
+      <div className="row">
         {tracks.map((element, index) => (
           <div key={element.id} className="col-lg-3 col-md-6 py-2">
             <div className="card" style={{ width: "18rem" }}>
@@ -28,7 +27,9 @@ export const TrackList = ({ tracks, isLoading, keyword }) => {
                 <audio
                   src={element.preview_url}
                   controls
-                  className="w-100">
+                  className="w-100"
+                >
+                  Your browser does not support the audio element.
                 </audio>
               </div>
             </div>
@@ -37,4 +38,4 @@ export const TrackList = ({ tracks, isLoading, keyword }) => {
       </div>
     </div>
   );
-}
+};

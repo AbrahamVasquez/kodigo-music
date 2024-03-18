@@ -17,7 +17,7 @@ export const Profile = ({ userPhotoURL }) => {
         </Link>
       </li>
       <li className="nav-item">
-        <button className="btn btn-danger ml-5" onClick={handleLogOut}>Log out</button>
+        <button className="btn btn-danger ml-5 rounded-circle" onClick={handleLogOut}>Log out</button>
       </li>
     </ul>
   );
