@@ -10,7 +10,7 @@ export const useFetch = () => {
     setIsLoading(true)
 
     try {
-      const tracksData = await fetch(`htttps://v1.nocodeapi.com/sskat503/spotify/RdAwxVJOvSnXrbUH/search?q=${keyword}&type=track`);
+      const tracksData = await fetch(`https://v1.nocodeapi.com/sskat503/spotify/RdAwxVJOvSnXrbUH/search?q=${keyword}&type=track`);
       let resp = await tracksData.json()
 
       if (!tracksData.ok) {
